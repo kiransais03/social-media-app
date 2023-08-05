@@ -1,10 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-let Details = ()=>{
+let Details = (props)=>{
+    console.log(props,"props is this")
     return (<>
-        <h1>Hi</h1>
+        <h1>Details</h1>
         <Outlet/>
+        {props.children}
         </>
     )
 }

@@ -16,12 +16,12 @@ useEffect(()=>{
 
     return (
         <>
-        <div className="navbardiv">
+        <div className="navbardiv shadow-lg mb-3">
           <h4 className="ms-3">TravelMedia.in</h4>
             <div className="nav-centrediv">
             <NavLink to="/"> <img src={home} alt="home"/> </NavLink> 
             <NavLink to="/notifications">   <img src={notifications} alt="notifications"/> </NavLink> 
-            <NavLink to="/details">    <img src={details} alt="details"/> </NavLink> 
+            <NavLink to="/item">    <img src={details} alt="details"/> </NavLink> 
             <NavLink to="/account">   <img src={account} alt="account"/> </NavLink> 
              </div>
              <h1 style={{visibility:"hidden"}}>TravelMedia.in</h1>

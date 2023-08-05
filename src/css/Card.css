@@ -1,0 +1,39 @@
+.polygon {
+    width: 50%;
+    height: 50%;
+}
+
+.card-div {
+    min-width: 150px;
+    max-width: 420px;
+    cursor: pointer;
+}
+
+.card-title {
+ line-height: 1.5em;
+ height: 1.5em;
+ overflow: hidden;
+}
+
+.paratext {
+    line-height: 1.5em;
+    height: 3em;  
+    overflow: hidden; 
+    margin: 0;
+}
+
+.para-div {
+    display: flex;
+    align-items: center;
+}
+
+.card-body {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.readmore {
+    color: #F05A22;
+    font-weight: bold;
+}

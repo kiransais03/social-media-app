@@ -8,4 +8,5 @@ body {
     display: flex;
     justify-content: center;
     background-color: blueviolet;
+    height: 95vh;
 }

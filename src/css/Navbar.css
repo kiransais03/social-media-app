@@ -1,0 +1,31 @@
+.navbardiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #F05A22;
+    align-items: center;
+}
+
+h4 {
+    color: white;
+}
+
+
+.nav-centrediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 50px;
+}
+
+
+.nav-centrediv img {
+   cursor: pointer;
+}
+
+.active {
+    background-color: teal;
+    border-radius: 30px;
+}

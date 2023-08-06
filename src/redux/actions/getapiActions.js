@@ -35,6 +35,7 @@ export const getapicall = ()=>{
         }
         catch(error) {
             console.log(error.message);
+            alert("Some Error Occured,Please Try Again")
             dispatch(failure(error.message));
         }
     })

@@ -25,3 +25,17 @@
     flex-direction: row;
     align-items: center;
 }
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 35px;
+    position: relative;
+    bottom:40px
+}
+
+.icons {
+    display: flex;
+    column-gap: 10px;
+}

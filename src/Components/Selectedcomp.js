@@ -15,6 +15,13 @@ const Selectedcomp = (props) => {
 const [selected,setSelected]=useState("detail");
 
   const  selectedobj=useSelector(state=>state.selectedimgReducer);
+
+  if(!selectedobj){
+    let atag =document.createElement('a');
+    atag.href="/";
+    atag.click();
+  }  
+
   
   const imgLink=`https://picsum.photos/200?random=${selectedobj.id}`;
 
@@ -39,7 +46,7 @@ const navigate=useNavigate();
         <div className="post-image">
             <img className="img-disp" src={imgLink} alt={`post-${selectedobj.id}`} />
              <div className='info'>
-             <span> {selectedobj.title.slice(0,20)}..</span>
+             <span style={{color:"white"}}> {selectedobj.title.slice(0,20)}..</span>
               <div className='icons'>
                 <img src={shareimg} alt="share" />
                 <img src={likeimg} alt="like" />
@@ -51,7 +58,7 @@ const navigate=useNavigate();
                 <button className={selected==='detail' ?'click':'hide'} onClick={details}>Detail</button>
                 <button className={selected==='userInfo' ?'click':'hide'} onClick={userInfo}>User Info</button>
             </div>
-            <div className="info">
+            <div className="info1">
               {selected==='detail' ? <p>{selectedobj.body}</p>
               : <p>Post Was Posted By {selectedobj.id}</p>}
             </div>

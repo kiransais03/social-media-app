@@ -10,6 +10,8 @@ import { selectedimage } from "../redux/actions/selectedimgAction";
 let Home = ()=>{
     let state = useSelector((currstateobj)=>{{console.log(currstateobj,"newstate") }return currstateobj.getapiReducer})
    console.log(state)
+
+
     let dispatch=useDispatch();
     useEffect(()=>{
         dispatch(getapicall());
@@ -29,6 +31,11 @@ let Home = ()=>{
             <img className="p-2" src={search} alt="search"/>
            <input className="search-ip" type="search" placeholder="Search here..."/>
         </div>
+
+        {/* //loader */}
+        {state.fetching && <div class="d-flex justify-content-center"><div class="spinner-border" style={{width: "4rem", height: "4rem",role:"status"}}>
+  <span class="visually-hidden">Loading...</span> </div> </div>}
+
         <div className="items-container">
             {state && state.success && state.success.map((elemobj,index,arr)=>{
                 // console.log("running",state)
@@ -37,7 +44,6 @@ let Home = ()=>{
         </div>
         </>
     )
-}
-
+        }
 
 export default Home;

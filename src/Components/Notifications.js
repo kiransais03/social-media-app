@@ -3,7 +3,7 @@ import React from "react";
 
 let Notifications = ()=>{
     return (
-        <h1>Notifications</h1>
+        <h1>No Pending Notifications</h1>
     )
 }
 

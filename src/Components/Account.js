@@ -3,7 +3,7 @@ import React from "react";
 
 let Account = ()=>{
     return (
-        <h1>Accounts</h1>
+        <h1>Account - Guest User</h1>
     )
 }
 

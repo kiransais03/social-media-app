@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import search from "../Images/search.png";
-import "../css/Home.css";
+import "../css/Morecards.css";
 import {getapicall} from "../redux/actions/getapiActions";
 import { useSelector,useDispatch } from "react-redux";
 import Card from "./Card";
 import {useNavigate} from "react-router-dom"
 import { selectedimage } from "../redux/actions/selectedimgAction";
 
-let Home = ()=>{
+let Morecards = ()=>{
     let state = useSelector((currstateobj)=>{{console.log(currstateobj,"newstate") }return currstateobj.getapiReducer})
    console.log(state)
     let dispatch=useDispatch();
@@ -24,11 +24,6 @@ let Home = ()=>{
 
 
     return (<>
-        <h2 className="ms-3 pageheading">Social Media For Travellers</h2>
-        <div className="search-div p-1">
-            <img className="p-2" src={search} alt="search"/>
-           <input className="search-ip" type="search" placeholder="Search here..."/>
-        </div>
         <div className="items-container">
             {state && state.success && state.success.map((elemobj,index,arr)=>{
                 // console.log("running",state)
@@ -40,4 +35,4 @@ let Home = ()=>{
 }
 
 
-export default Home;
+export default Morecards;

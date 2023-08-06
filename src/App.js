@@ -9,6 +9,7 @@ import Notifications from "./Components/Notifications";
 import Navbar from "./Components/Navbar";
 import Errorpage from "./Components/Errorpage";
 import Selectedcomp from "./Components/Selectedcomp";
+import Morecards from "./Components/Morecards";
 
 //css
 import "./App.css"
@@ -19,9 +20,10 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/item" element={<Details></Details>}>
-            <Route index element={<Selectedcomp/>} />
-        </Route>
+        <Route path={'/item'} element={<Details />} ></Route>
+        <Route path={'/item/:id'} element={<Selectedcomp> 
+          <Morecards/>
+        </Selectedcomp>} ></Route>
         <Route path="/notifications" element={<Notifications/>}/>
         <Route path="/account" element={<Account/>}/>
         <Route path="*" element={<Errorpage/>}/>

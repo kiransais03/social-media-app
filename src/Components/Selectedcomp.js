@@ -1,31 +1,22 @@
 import React ,{useState} from 'react';
 import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import "../css/Selectedcomp.css"
+import backimg from "../Images/backward.png"
 
 //imports
-import likeimg from '../images/likeimg.svg'
-import shareimg from '../images/shareimg.svg';
-import Post from './Post';
-import {selectedimage} from '../redux/actions/selectedimgAction';
+import likeimg from '../Images/like.svg'
+import shareimg from '../Images/share.svg';
 
 
-const Selectedcomp = () => {
+const Selectedcomp = (props) => {
 
 
-const [selected,setSelected]=useState("");
+const [selected,setSelected]=useState("detail");
 
   const  selectedobj=useSelector(state=>state.selectedimgReducer);
   
   const imgLink=`https://picsum.photos/200?random=${selectedobj.id}`;
-
-  const {fetching,success,failure}=useSelector(state=>state.getapiReducer);
-
-   const dispatch=useDispatch();
-
-  function handleClick(selectedobj){
-    dispatch(selectedimage(selectedobj));
-      navigate(`/item/${selectedobj.id}`);
-}
 
 
 function details(){
@@ -41,12 +32,12 @@ const navigate=useNavigate();
   return (<>
 <div className='selected-details-container'>
     <div className="post-heading">
-    <p className='back' onClick={()=>navigate('/')}></p>
-    <h1>Post Number  #{selectedobj.id}</h1>
+      <button onClick={()=>navigate('/')}> <img src={backimg} alt="back"/> </button>
+       <h1>Post Number  #{selectedobj.id}</h1>
     </div>
     <div className="post-details">
         <div className="post-image">
-            <img src={imgLink} alt={`post-${selectedobj.id}`} />
+            <img className="img-disp" src={imgLink} alt={`post-${selectedobj.id}`} />
              <div className='info'>
              <span> {selectedobj.title.slice(0,20)}..</span>
               <div className='icons'>
@@ -57,8 +48,8 @@ const navigate=useNavigate();
         </div>
         <div className="details-section">
             <div className="buttons">
-                <button className={selected==='detail' ?'active':'hide'} onClick={details}>Detail</button>
-                <button className={selected==='userInfo' ?'active':'hide'} onClick={userInfo}>User Info</button>
+                <button className={selected==='detail' ?'click':'hide'} onClick={details}>Detail</button>
+                <button className={selected==='userInfo' ?'click':'hide'} onClick={userInfo}>User Info</button>
             </div>
             <div className="info">
               {selected==='detail' ? <p>{selectedobj.body}</p>
@@ -68,14 +59,7 @@ const navigate=useNavigate();
     </div>
 </div>
  <h1>More Posts</h1>
- <div className="posts">
-      {fetching && <h1>Fetching...</h1>}
-      {data.length>0 && data.map((post)=>{
-       return <div className="post" onClick={()=>handleClick(post)} key={post.id}>
-               <Post info={post} />
-              </div>
-      })}
-   </div>
+ {props.children}
 </>) }
 
 export default Selectedcomp
